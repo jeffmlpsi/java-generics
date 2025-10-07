@@ -19,4 +19,40 @@ class AppTest {
     double[] sorted = sorter.sort(array);
     assertArrayEquals(new double[]{1.1, 2.2, 3.3, 5.5, 8.8}, sorted);
   }
+
+  @Test void testSortAsInt() {
+    Sorter sorter = new Sorter();
+    Integer[] array = {5, 3, 8, 1, 2};
+    Integer[] sorted = sorter.sortWithGenerics(array);
+    assertArrayEquals(new Integer[]{1, 2, 3, 5, 8}, sorted);
+  }
+  @Test void testSortAsDouble() {
+    Sorter sorter = new Sorter();
+    Double[] array = {5.5, 3.3, 8.8, 1.1, 2.2};
+    Double[] sorted = sorter.sortWithGenerics(array);
+    assertArrayEquals(new Double[]{1.1, 2.2, 3.3, 5.5, 8.8}, sorted);
+  } 
+  @Test void testSortAsString() {
+    Sorter sorter = new Sorter();
+    String[] array = {"banana", "apple", "orange", "kiwi"};
+    String[] sorted = sorter.sortWithGenerics(array);
+    assertArrayEquals(new String[]{"apple", "banana", "kiwi", "orange"}, sorted);
+  }
+
+  @Test void testSortAsMyComparableClass() {
+    Sorter sorter = new Sorter();
+    MyComparableClass[] array = {
+      new MyComparableClass(5),
+      new MyComparableClass(3),
+      new MyComparableClass(8),
+      new MyComparableClass(1),
+      new MyComparableClass(2)
+    };
+    MyComparableClass[] sorted = sorter.sortWithGenerics(array);
+    int[] sortedValues = new int[sorted.length];
+    for (int i = 0; i < sorted.length; i++) {
+      sortedValues[i] = sorted[i].getValue();
+    }
+    assertArrayEquals(new int[]{1, 2, 3, 5, 8}, sortedValues);
+  }
 }

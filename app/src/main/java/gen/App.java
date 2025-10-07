@@ -4,8 +4,18 @@
 package gen;
 
 public class App {
+
+    public static void wrapperDemo() {
+        int i = 11;
+        int j = 12;    
+        Integer iWrapper = i; // autoboxing, automaticallly creates an Integer object from int
+        Integer jWrapper = Integer.valueOf(j); // explicit boxing, manually creates an Integer object from int
+        System.out.println(iWrapper.compareTo(jWrapper));  
+    }
     
     public static void main(String[] args) {
-       
+       Integer j = 11;
+       Integer k = 12;
+       System.out.println(j.compareTo(k));
     }
 }
